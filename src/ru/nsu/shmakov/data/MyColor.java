@@ -5,13 +5,15 @@ import java.awt.*;
 /**
  * Created by Иван on 09.03.2015.
  */
-public class MyColor {
+public class MyColor implements Cloneable {
     private int color = Color.WHITE.getRGB();
     private MyColorScheme colorScheme = MyColorScheme.RGBA;
 
+
+
     public MyColor(int color, MyColorScheme colorScheme) {
         this.color = color;
-        this.colorScheme = colorScheme;
+        this.colorScheme = colorScheme; // Вообще, цветовая схема - абстракция высшего порядка, т.ч. выпилить бы это отсюда.
     }
 
     public MyColorScheme getColorScheme() {
@@ -20,6 +22,15 @@ public class MyColor {
 
     public void setColorScheme(MyColorScheme colorScheme) {
         this.colorScheme = colorScheme;
+    }
+
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            // this shouldn't happen, since we are Cloneable
+            throw new InternalError();
+        }
     }
 
     public int getColor() {
