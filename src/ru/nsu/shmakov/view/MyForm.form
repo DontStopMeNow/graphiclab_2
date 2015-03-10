@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ru.nsu.shmakov.view.MyForm">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="718" height="472"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="a83c4" class="ru.nsu.shmakov.view.ImagePanel" binding="srcImagePanel">
+        <constraints>
+          <grid row="1" column="0" row-span="18" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="5.0" weighty="10.0"/>
+        </constraints>
+        <properties>
+          <background color="-6684673"/>
+        </properties>
+      </component>
+      <component id="e7792" class="ru.nsu.shmakov.view.ImagePanel" binding="dstImagePanel">
+        <constraints>
+          <grid row="1" column="2" row-span="18" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="5.0" weighty="10.0"/>
+        </constraints>
+        <properties>
+          <background color="-13108"/>
+        </properties>
+      </component>
+      <component id="1eb1c" class="javax.swing.JLabel" binding="SourceLable">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Source"/>
+        </properties>
+      </component>
+      <component id="3a3f8" class="javax.swing.JLabel" binding="DestinationLable">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Destination"/>
+        </properties>
+      </component>
+      <component id="11404" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="0" column="1" row-span="19" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.4" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <orientation value="1"/>
+        </properties>
+      </component>
+      <component id="43dd3" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="0" column="3" row-span="19" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.4" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <orientation value="1"/>
+        </properties>
+      </component>
+      <component id="f6061" class="javax.swing.JLabel" binding="OptionLable">
+        <constraints>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="2.5" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Options"/>
+        </properties>
+      </component>
+      <component id="9f869" class="javax.swing.JButton" binding="srcToDstButton">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Src -&gt; Dst"/>
+        </properties>
+      </component>
+      <component id="9e065" class="javax.swing.JButton" binding="dstToSrcButton">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Dst -&gt; Src"/>
+        </properties>
+      </component>
+      <component id="bc5d2" class="javax.swing.JButton" binding="toBNWButton">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="To Black'n White"/>
+        </properties>
+      </component>
+      <component id="1d93a" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="e9b08" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="8ab49" class="javax.swing.JButton" binding="sharpenButton">
+        <constraints>
+          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Sharpen"/>
+        </properties>
+      </component>
+      <component id="538a8" class="javax.swing.JButton" binding="blurButton">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Blur"/>
+        </properties>
+      </component>
+      <component id="e72f3" class="javax.swing.JButton" binding="negativeButton">
+        <constraints>
+          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Negative"/>
+        </properties>
+      </component>
+      <component id="3040f" class="javax.swing.JButton" binding="stampingButton">
+        <constraints>
+          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Stamping"/>
+        </properties>
+      </component>
+      <component id="79526" class="javax.swing.JButton" binding="aquaButton">
+        <constraints>
+          <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Aqua"/>
+        </properties>
+      </component>
+      <component id="a3cb1" class="javax.swing.JSlider" binding="contoursSlider">
+        <constraints>
+          <grid row="13" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="fe789" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="65f38" class="javax.swing.JRadioButton" binding="contoursRadioButton">
+        <constraints>
+          <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <hideActionText value="false"/>
+          <selected value="true"/>
+          <text value="Contours"/>
+        </properties>
+      </component>
+      <component id="976d3" class="javax.swing.JRadioButton" binding="gammaRadioButton">
+        <constraints>
+          <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Gamma-correction"/>
+        </properties>
+      </component>
+      <component id="cb880" class="javax.swing.JSlider" binding="gammaSlider">
+        <constraints>
+          <grid row="15" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <paintLabels value="false"/>
+          <paintTicks value="false"/>
+        </properties>
+      </component>
+      <component id="cf0eb" class="javax.swing.JButton" binding="saveButton">
+        <constraints>
+          <grid row="17" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Save"/>
+        </properties>
+      </component>
+      <component id="64828" class="javax.swing.JButton" binding="openButton">
+        <constraints>
+          <grid row="18" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Open"/>
+        </properties>
+      </component>
+      <component id="1a119" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="MyButtonGroup">
+      <member id="65f38"/>
+      <member id="976d3"/>
+    </group>
+  </buttonGroups>
+</form>

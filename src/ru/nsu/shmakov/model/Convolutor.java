@@ -1,19 +1,46 @@
 package ru.nsu.shmakov.model;
 
-import ru.nsu.shmakov.data.ConvolutionMat;
-import ru.nsu.shmakov.data.MyColor;
-import ru.nsu.shmakov.data.MyColorScheme;
-import ru.nsu.shmakov.data.MyMat;
+import ru.nsu.shmakov.data.*;
 
 /**
  * Created by Иван on 09.03.2015.
  */
 public class Convolutor {
-    public static MyMat doConvolution(MyMat source, ConvolutionMat cMat, ConvolutionPaddingType type) {
-        MyColor[][] newArr = new MyColor[source.getWidth()  + 2*(cMat.getWidth ()/2)]
-                                        [source.getHeight() + 2*(cMat.getHeight()/2)];
 
-        MyMat result = new MyMat(source.getWidth(), source.getHeight(), source.getColorScheme());
+    public static MyMat doConvolution(MyMat source, ConvolutionMat cMat, ConvolutionPaddingType type) {
+        int shiftX = (cMat.getWidth ()/2);
+        int shiftY = (cMat.getHeight()/2);
+
+        int sourceWidth  = source.getWidth ();
+        int sourceHeight = source.getHeight();
+
+        int newWidth  = sourceWidth  + (2 * shiftX);
+        int newHeight = sourceHeight + (2 * shiftY);
+
+        MyColor[][] paddedArr = doPadding(source, cMat, type);
+        Vector3[][] newValues = new Vector3[sourceWidth][sourceHeight];
+
+        int cWidth  = cMat.getWidth() ;
+        int cHeight = cMat.getHeight();
+
+        for (int x = 0; x <sourceWidth; x++) {
+            for (int y = 0; y < sourceHeight; y++) {
+
+                Vector3 res = new Vector3(0, 0, 0);
+
+                for (int coreX = 0; coreX < cWidth; ++coreX) {
+                    for (int coreY = 0; coreY < cHeight; ++coreY) {
+                        Vector3 tmp = paddedArr[x + coreX][ y + coreY]
+                                      .multiplex(cMat.getValue(coreX, coreY) / cMat.getDiv());
+                        res.add(tmp);
+                    }
+                }
+                newValues[x][y] = res;
+            }
+        }
+
+
+        MyMat result = new MyMat(source.getWidth(), source.getHeight(), source.getColorScheme(), newValues);
         return result;
     }
 

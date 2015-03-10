@@ -16,6 +16,28 @@ public class MyColor implements Cloneable {
         this.colorScheme = colorScheme; // Вообще, цветовая схема - абстракция высшего порядка, т.ч. выпилить бы это отсюда.
     }
 
+    public MyColor(Vector3 vec, MyColorScheme colorScheme) {
+        int r = (int)Math.round(vec.getX());
+        if (r > 255)
+            r = 255;
+        if (r < 0)
+            r = 0;
+
+        int g = (int)Math.round(vec.getY());
+        if (g > 255)
+            g = 255;
+        if (g < 0)
+            g = 0;
+
+        int b = (int)Math.round(vec.getZ());
+        if (b > 255)
+            b = 255;
+        if (b < 0)
+            b = 0;
+
+        color = 0xFF000000 | (r << 16) | (g << 8) | b;
+        this.colorScheme = colorScheme;
+    }
     public MyColorScheme getColorScheme() {
         return colorScheme;
     }
@@ -54,6 +76,35 @@ public class MyColor implements Cloneable {
         }
 
         return result;
+    }
+
+    public int getRed() {
+        return (color >> 16) & 0xFF;
+    }
+
+    public int getGreen() {
+        return (color >> 8) & 0xFF;
+    }
+
+    public int getBlue() {
+        return color & 0xFF;
+    }
+
+    public int getAlpha() {
+        return (color >> 24) & 0xFF;
+    }
+
+    public Vector3 multiplex(double k) {
+        int r = getRed();
+        int g = getGreen();
+        int b = getBlue();
+
+        double dr = r * k;
+        double dg = g * k;
+        double db = b * k;
+
+
+        return new Vector3(dr, dg, db);
     }
 
     public void setColor(int color) {

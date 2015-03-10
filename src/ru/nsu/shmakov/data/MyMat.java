@@ -8,6 +8,18 @@ import java.awt.image.BufferedImage;
  */
 public class MyMat implements Cloneable {
 
+    public MyMat(BufferedImage bi, MyColorScheme colorScheme) {
+        this.width  = bi.getWidth ();
+        this.height = bi.getHeight();
+        this.colorScheme = colorScheme;
+        arr = new MyColor[width][height];
+
+        for (int x = 0; x < width; ++x) {
+            for (int y = 0; y < height; ++y) {
+                arr[x][y] = new MyColor(bi.getRGB(x, y), colorScheme);
+            }
+        }
+    }
     public MyMat(int width, int height, MyColorScheme colorScheme)
             throws RuntimeException {
         if(width <= 0 || height <= 0) {
@@ -64,6 +76,35 @@ public class MyMat implements Cloneable {
         this.height = height;
         this.colorScheme = colorScheme;
         this.arr = arr;
+
+    }
+
+    public MyMat(int width, int height, MyColorScheme colorScheme, Vector3[][] arr)
+            throws ArrayIndexOutOfBoundsException, RuntimeException {
+        if(width <= 0 || height <= 0 || width*height != arr[0].length * arr.length) {
+            System.out.println("Invalid width/height.");
+            throw new RuntimeException("Invalid width/height.");
+        }
+
+        try {
+            Vector3 a = arr[width - 1][height - 1];
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Out of array range. Incorrect width/height");
+            throw e;
+        }
+
+        this.width = width;
+        this.height = height;
+        this.colorScheme = colorScheme;
+        this.arr = new MyColor[width][height];
+
+        for (int x = 0; x < width; ++x) {
+            for (int y = 0; y < height; ++ y) {
+                this.arr[x][y] = new MyColor(arr[x][y], colorScheme);
+            }
+        }
+
 
     }
 
