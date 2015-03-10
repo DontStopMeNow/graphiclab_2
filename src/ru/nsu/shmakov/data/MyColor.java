@@ -107,6 +107,28 @@ public class MyColor implements Cloneable {
         return new Vector3(dr, dg, db);
     }
 
+    public void sum(Vector3 s) {
+        int r = (int) (getRed  () + s.getX());
+        if (r > 255)
+            r = 255;
+        if (r < 0)
+            r = 0;
+
+        int g = (int) (getGreen() + s.getY());
+        if (g > 255)
+            g = 255;
+        if (g < 0)
+            g = 0;
+
+        int b = (int) (getBlue () + s.getZ());
+        if (b > 255)
+            b = 255;
+        if (b < 0)
+            b = 0;
+
+        color = (color & 0xFF000000)| (r << 16) | (g << 8) | b;
+    }
+
     public void setColor(int color) {
         this.color = color;
     }

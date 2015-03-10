@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ru.nsu.shmakov.view.MyForm">
   <grid id="27dc6" binding="rootPanel" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="718" height="472"/>
+      <xy x="20" y="20" width="718" height="484"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -76,7 +76,7 @@
           <gridbag weightx="0.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <text value="Src -&gt; Dst"/>
+          <text value="Src ==&gt; Dst"/>
         </properties>
       </component>
       <component id="9e065" class="javax.swing.JButton" binding="dstToSrcButton">
@@ -85,7 +85,7 @@
           <gridbag weightx="0.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <text value="Dst -&gt; Src"/>
+          <text value="Src &lt;== Dst"/>
         </properties>
       </component>
       <component id="bc5d2" class="javax.swing.JButton" binding="toBNWButton">
@@ -170,27 +170,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="65f38" class="javax.swing.JRadioButton" binding="contoursRadioButton">
-        <constraints>
-          <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <enabled value="false"/>
-          <hideActionText value="false"/>
-          <selected value="true"/>
-          <text value="Contours"/>
-        </properties>
-      </component>
-      <component id="976d3" class="javax.swing.JRadioButton" binding="gammaRadioButton">
-        <constraints>
-          <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="1.0"/>
-        </constraints>
-        <properties>
-          <text value="Gamma-correction"/>
-        </properties>
-      </component>
       <component id="cb880" class="javax.swing.JSlider" binding="gammaSlider">
         <constraints>
           <grid row="15" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -225,6 +204,24 @@
           <gridbag weightx="0.0" weighty="0.1"/>
         </constraints>
         <properties/>
+      </component>
+      <component id="eb415" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Contours"/>
+        </properties>
+      </component>
+      <component id="e0938" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <text value="Gamma-correctionl"/>
+        </properties>
       </component>
     </children>
   </grid>

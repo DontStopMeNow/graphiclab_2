@@ -13,6 +13,6 @@ public class StampingController {
     }
 
     public void doAction() {
-
+        filtrator.doStamping();
     }
 }

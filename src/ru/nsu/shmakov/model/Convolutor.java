@@ -10,6 +10,7 @@ public class Convolutor {
     public static MyMat doConvolution(MyMat source, ConvolutionMat cMat, ConvolutionPaddingType type) {
         int shiftX = (cMat.getWidth ()/2);
         int shiftY = (cMat.getHeight()/2);
+        int colorShift = cMat.getColorShift();
 
         int sourceWidth  = source.getWidth ();
         int sourceHeight = source.getHeight();
@@ -26,7 +27,7 @@ public class Convolutor {
         for (int x = 0; x <sourceWidth; x++) {
             for (int y = 0; y < sourceHeight; y++) {
 
-                Vector3 res = new Vector3(0, 0, 0);
+                Vector3 res = new Vector3(colorShift, colorShift, colorShift);
 
                 for (int coreX = 0; coreX < cWidth; ++coreX) {
                     for (int coreY = 0; coreY < cHeight; ++coreY) {
@@ -152,5 +153,46 @@ public class Convolutor {
                 break;
         }
         return newArr;
+    }
+
+    public static MyMat doBlur(MyMat source, ConvolutionPaddingType type) {
+        double[][] a = {{1, 1, 1},
+                        {1, 1, 1},
+                        {1, 1, 1}};
+        ConvolutionMat convolutionMat = new ConvolutionMat(3, 3, a, 0);
+        return Convolutor.doConvolution(source, convolutionMat, type);
+    }
+
+    public static MyMat doSharpen(MyMat source, ConvolutionPaddingType type) {
+        double[][] a = {{ 0, -1,  0},
+                        {-1,  5, -1},
+                        { 0, -1,  0}};
+        ConvolutionMat convolutionMat = new ConvolutionMat(3, 3, a, 0);
+        return Convolutor.doConvolution(source, convolutionMat, type);
+    }
+
+    public static MyMat doStamping(MyMat source, ConvolutionPaddingType type) {
+        double[][] a = {{ 0,  1,  0},
+                        {-1,  0,  1},
+                        { 0, -1,  0}};
+        ConvolutionMat convolutionMat = new ConvolutionMat(3, 3, a, 128);
+        convolutionMat.setDiv(1);
+        return Convolutor.doConvolution(source, convolutionMat, type);
+
+    }
+
+    public static MyMat doAqua(MyMat source, ConvolutionPaddingType type) {
+        double[][] a = {{ 1, 1, 1, 1, 1},
+                        { 1, 1, 1, 1, 1},
+                        { 1, 1, 1, 1, 1},
+                        { 1, 1, 1, 1, 1},
+                        { 1, 1, 1, 1, 1}};
+        ConvolutionMat convolutionMat = new ConvolutionMat(5, 5, a, 0);
+        MyMat tmp = Convolutor.doConvolution(source, convolutionMat, type);
+        double[][] b = {{ -0.5, -0.5,  -0.5},
+                        { -0.5,    5,  -0.5},
+                        { -0.5, -0.5,  -0.5}};
+        convolutionMat = new ConvolutionMat(3, 3, b, 0);
+        return Convolutor.doConvolution(tmp, convolutionMat, type);
     }
 }

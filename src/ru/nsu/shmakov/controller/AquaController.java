@@ -13,6 +13,6 @@ public class AquaController {
     }
 
     public void doAction() {
-
+        filtrator.doAqua();
     }
 }

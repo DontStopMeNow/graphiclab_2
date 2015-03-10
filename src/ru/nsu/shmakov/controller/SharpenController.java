@@ -13,6 +13,6 @@ public class SharpenController {
     }
 
     public void doAction() {
-
+        filtrator.doSharpen();
     }
 }

@@ -1,7 +1,6 @@
 package ru.nsu.shmakov.model;
 
 import ru.nsu.shmakov.controller.*;
-import ru.nsu.shmakov.data.ConvolutionMat;
 import ru.nsu.shmakov.data.MyColorScheme;
 import ru.nsu.shmakov.data.MyMat;
 import ru.nsu.shmakov.view.MyForm;
@@ -68,11 +67,31 @@ public class Filtrator {
 
     public void doBlur() {
         srcToDst();
-        double[][] a = {{1, 1, 1},
-                        {1, 1, 1},
-                        {1, 1, 1}};
-        ConvolutionMat convolutionMat = new ConvolutionMat(3, 3, a);
-        dstMat = Convolutor.doConvolution(dstMat, convolutionMat, ConvolutionPaddingType.DUPLICATE);
+        dstMat = Convolutor.doBlur(dstMat, ConvolutionPaddingType.DUPLICATE);
+        dstImage = dstMat.toBufferedImage();
+        redraw();
+    }
+
+    public void doSharpen() {
+        srcToDst();
+        dstMat = Convolutor.doSharpen(dstMat, ConvolutionPaddingType.DUPLICATE);
+        dstImage = dstMat.toBufferedImage();
+        redraw();
+    }
+
+    public void doStamping() {
+        srcToDst();
+        dstScheme = MyColorScheme.GREY;
+        dstMat = Convolutor.doStamping(dstMat, ConvolutionPaddingType.DUPLICATE);
+        dstMat.setColorScheme(dstScheme);
+
+        dstImage = dstMat.toBufferedImage();
+        redraw();
+    }
+
+    public void doAqua() {
+        srcToDst();
+        dstMat = Convolutor.doAqua(dstMat, ConvolutionPaddingType.DUPLICATE);
         dstImage = dstMat.toBufferedImage();
         redraw();
     }
